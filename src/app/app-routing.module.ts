@@ -10,16 +10,15 @@ import { ChartComponent } from "./components/chart/chart.component";
 
 
 const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent },
-  { path: 'grid', component: GridComponent },
+  { path: '', component: HomeComponent },
+  { path: 'grid' , component: GridComponent },
   { path: 'form', component: FormComponent },
   { path: 'chart', component: ChartComponent },
-  { path: '**', redirectTo: 'home' }
+  { path: '**', redirectTo: '' }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {useHash: true})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
