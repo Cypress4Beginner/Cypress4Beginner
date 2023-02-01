@@ -2,18 +2,18 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { HomeComponent } from './components/home/home.component';
-import { GridComponent } from "./components/grid/grid.component";
+import { InstallComponent } from "./components/install/install.component";
 
-import { FormComponent } from "./components/form/form.component";
+import { CucumberComponent } from "./components/cucumber/cucumber.component";
 
-import { ChartComponent } from "./components/chart/chart.component";
+import { ListExampleComponent } from "./components/list/list.component";
 
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'grid' , component: GridComponent },
-  { path: 'form', component: FormComponent },
-  { path: 'chart', component: ChartComponent },
+  { path: 'install' , component: InstallComponent },
+  { path: 'cucumber', component: CucumberComponent },
+  { path: 'list_example', component: ListExampleComponent },
   { path: '**', redirectTo: '' }
 ];
 

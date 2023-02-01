@@ -5,12 +5,12 @@ import { Component } from '@angular/core';
     templateUrl: './header.component.html'
 })
 export class HeaderComponent {
-    public projectName = 'Kendo UI for Angular';
+    public projectName = 'Cypress 4 Beginner';
     public items: any[] = [
       { text: 'Home' },
-      { text: 'grid' },
-      { text: 'form' },
-      { text: 'chart' },
+      { text: 'install' },
+      { text: 'cucumber' },
+      { text: 'list_example' },
     ];
 }
 

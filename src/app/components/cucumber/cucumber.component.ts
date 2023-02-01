@@ -3,8 +3,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { TextBoxComponent } from '@progress/kendo-angular-inputs';
 
 @Component({
-    selector: 'app-form',
-    templateUrl: './form.component.html',
+    selector: 'app-cucumber',
+    templateUrl: './cucumber.component.html',
     styles: [
         `
             .form-wrapper {
@@ -19,7 +19,7 @@ import { TextBoxComponent } from '@progress/kendo-angular-inputs';
     encapsulation: ViewEncapsulation.None,
 })
 
-export class FormComponent {
+export class CucumberComponent {
     @ViewChild('password') public textbox: TextBoxComponent | undefined;
 
     public form: FormGroup;

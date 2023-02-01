@@ -18,12 +18,11 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './components/home/home.component';
-import { FooterComponent } from './components/footer/footer.component';
-import { GridComponent } from "./components/grid/grid.component";
+import { InstallComponent } from "./components/install/install.component";
 
-import { FormComponent } from "./components/form/form.component";
+import { CucumberComponent } from "./components/cucumber/cucumber.component";
 
-import { ChartComponent } from "./components/chart/chart.component";
+import { ListExampleComponent } from "./components/list/list.component";
 
 
 @NgModule({
@@ -31,10 +30,9 @@ import { ChartComponent } from "./components/chart/chart.component";
         AppComponent,
         HeaderComponent,
         HomeComponent,
-        GridComponent,
-        FormComponent,
-        ChartComponent,
-        FooterComponent
+        InstallComponent,
+        CucumberComponent,
+        ListExampleComponent
     ],
     imports: [
       BrowserModule,

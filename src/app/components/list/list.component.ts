@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-    selector: 'app-chart',
-    templateUrl: './chart.component.html'
+    selector: 'app-list',
+    templateUrl: './list.component.html'
 })
-export class ChartComponent {
+export class ListExampleComponent {
     public series = [
         { category: 'EUROPE', value: 0.3 },
         { category: 'NORTH AMERIKA', value: 0.23 },

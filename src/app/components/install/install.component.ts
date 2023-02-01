@@ -4,10 +4,10 @@ import { products } from '../../common/products';
 import { Product } from '../../common/product-model';
 
 @Component({
-    selector: 'app-grid.component',
-    templateUrl: './grid.component.html'
+    selector: 'app-install.component',
+    templateUrl: './install.component.html'
 })
-export class GridComponent {
+export class InstallComponent {
     public gridData: Product[] = products;
     public pageSize = 10;
     public formGroup: undefined | FormGroup;
