@@ -1,6 +1,6 @@
 <div class="container-fluid">
     <div class='row my-4'>
-        <div class='col-12 col-lg-12 border-right'>
+        <div class='col-12 col-lg- border-right' data-cy="data-grid">
             <kendo-grid
               [kendoGridBinding]="gridData"
               [kendoGridReactiveEditing]="createFormGroup"
@@ -9,18 +9,53 @@
               [pageable]="true"
               [navigable]="true">
                 <ng-template kendoGridToolbarTemplate>
-                    <button kendoGridAddCommand>Add new</button>
+                    <button kendoGridAddCommand data-cy="add-new-item">Add new</button>
                 </ng-template>
-                <kendo-grid-column field="ProductName" title="Product Name"></kendo-grid-column>
-                <kendo-grid-column field="UnitPrice" editor="numeric" title="Price"></kendo-grid-column>
-                <kendo-grid-column field="Discontinued" editor="boolean" title="Discontinued"></kendo-grid-column>
-                <kendo-grid-column field="UnitsInStock" editor="numeric" title="Units In Stock"></kendo-grid-column>
+                <kendo-grid-column field="ProductName" title="Product Name" >
+                    <ng-template kendoGridHeaderTemplate let-column let-columnIndex="columnIndex">
+                      <span data-cy="product-name-column">{{column.field}}</span>
+                    </ng-template>
+                    <ng-template kendoGridCellTemplate let-dataItem>
+                        <span data-cy="product-name-value" [attr.data-cy-key]="dataItem.ProductName">
+                            {{dataItem.ProductName}}
+                        </span>
+                    </ng-template>
+                </kendo-grid-column>
+                <kendo-grid-column field="UnitPrice" editor="numeric" title="Price">
+                    <ng-template kendoGridHeaderTemplate let-column let-columnIndex="columnIndex">
+                      <span data-cy="price-name-column">{{column.field}}</span>
+                    </ng-template>
+                    <ng-template kendoGridCellTemplate let-dataItem>
+                        <span data-cy="price-name-value" [attr.data-cy-key]="dataItem.ProductName">
+                            {{dataItem.UnitPrice}}
+                        </span>
+                    </ng-template>
+                </kendo-grid-column>
+                <kendo-grid-column field="Discontinued" editor="boolean" title="Discontinued">
+                    <ng-template kendoGridHeaderTemplate let-column let-columnIndex="columnIndex">
+                      <span data-cy="discontinued-name-column">{{column.field}}</span>
+                    </ng-template>
+                    <ng-template kendoGridCellTemplate let-dataItem>
+                        <span data-cy="discontinued-name-value" [attr.data-cy-key]="dataItem.ProductName">
+                            {{dataItem.UnitPrice}}
+                        </span>
+                    </ng-template>
+                </kendo-grid-column>
+                <kendo-grid-column field="UnitsInStock" editor="numeric" title="Units In Stock">
+                    <ng-template kendoGridHeaderTemplate let-column let-columnIndex="columnIndex">
+                      <span data-cy="stock-name-column">{{column.field}}</span>
+                    </ng-template>
+                    <ng-template kendoGridCellTemplate let-dataItem>
+                        <span data-cy="stock-name-value" [attr.data-cy-key]="dataItem.ProductName">
+                            {{dataItem.UnitsInStock}}
+                        </span>
+                    </ng-template></kendo-grid-column>
                 <kendo-grid-command-column title="command" [width]="220">
-                    <ng-template kendoGridCellTemplate let-isNew="isNew">
-                        <button kendoGridEditCommand [primary]="true">Edit</button>
-                        <button kendoGridRemoveCommand>Remove</button>
-                        <button kendoGridSaveCommand [disabled]="!!formGroup?.invalid">{{ isNew ? 'Add' : 'Update' }}</button>
-                        <button kendoGridCancelCommand>{{ isNew ? 'Discard changes' : 'Cancel' }}</button>
+                    <ng-template kendoGridCellTemplate let-isNew="isNew" let-dataItem>
+                        <button kendoGridEditCommand data-cy="edit" [attr.data-cy-key]="dataItem.ProductName" [primary]="true">Edit</button>
+                        <button kendoGridRemoveCommand data-cy="remove" [attr.data-cy-key]="dataItem.ProductName" >Remove</button>
+                        <button kendoGridSaveCommand data-cy="save" [attr.data-cy-key]="isNew?'new':dataItem.ProductName" [disabled]="!!formGroup?.invalid">{{ isNew ? 'Add' : 'Update' }}</button>
+                        <button kendoGridCancelCommand data-cy="cancel" [attr.data-cy-key]="isNew?'new':dataItem.ProductName" >{{ isNew ? 'Discard changes' : 'Cancel' }}</button>
                     </ng-template>
                 </kendo-grid-command-column>
             </kendo-grid>
