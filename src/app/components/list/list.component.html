@@ -1,6 +1,36 @@
 <div class="container-fluid">
     <div class='row my-4'>
-        <div class='col-12 col-lg-9 border-right'>
+        <div class='col-12 col-lg-12 border-right'>
+            <kendo-grid
+              [kendoGridBinding]="gridData"
+              [kendoGridReactiveEditing]="createFormGroup"
+              [height]="533"
+              [pageSize]="pageSize"
+              [pageable]="true"
+              [navigable]="true">
+                <ng-template kendoGridToolbarTemplate>
+                    <button kendoGridAddCommand>Add new</button>
+                </ng-template>
+                <kendo-grid-column field="ProductName" title="Product Name"></kendo-grid-column>
+                <kendo-grid-column field="UnitPrice" editor="numeric" title="Price"></kendo-grid-column>
+                <kendo-grid-column field="Discontinued" editor="boolean" title="Discontinued"></kendo-grid-column>
+                <kendo-grid-column field="UnitsInStock" editor="numeric" title="Units In Stock"></kendo-grid-column>
+                <kendo-grid-command-column title="command" [width]="220">
+                    <ng-template kendoGridCellTemplate let-isNew="isNew">
+                        <button kendoGridEditCommand [primary]="true">Edit</button>
+                        <button kendoGridRemoveCommand>Remove</button>
+                        <button kendoGridSaveCommand [disabled]="!!formGroup?.invalid">{{ isNew ? 'Add' : 'Update' }}</button>
+                        <button kendoGridCancelCommand>{{ isNew ? 'Discard changes' : 'Cancel' }}</button>
+                    </ng-template>
+                </kendo-grid-command-column>
+            </kendo-grid>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class='row my-4'>
+        <div class='col-12 border-right'>
             <kendo-chart>
                 <kendo-chart-series>
                     <kendo-chart-series-item type="pie" [data]="series" categoryField="category" field="value">
@@ -10,18 +40,6 @@
                 </kendo-chart-series>
                 <kendo-chart-legend [visible]="true" [position]="'bottom'"></kendo-chart-legend>
             </kendo-chart>
-        </div>
-        <div class='col-12 col-lg-3 mt-3 mt-lg-0'>
-            <h3>Kendo UI for Angular Chart</h3>
-            <p>The Kendo UI for Angular Charts provide high quality graphical data visualization options.</p>
-
-            <p>They include a variety of chart types and styles that have extensive configuration options. This
-                flexibility allows you to quickly and easily create the exact chart you need to fit your specific
-                requirements for functionality and appearance.</p>
-
-            <p>The Kendo UI for Angular Chart Components are built from the ground up, specifically for Angular, so
-                that you get high performance chart components that integrate tightly with your Angular app and with
-                the rest of the Kendo UI for Angular components.</p>
         </div>
     </div>
 </div>
