@@ -35,7 +35,14 @@ export default defineConfig({
     specPattern: 'cypress/e2e/**/*.feature',
   },
 });
+npm install cypress-cucumber-preprocessor --save-dev  
 
+"cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": true,
+    "stepDefinitions": "./cypress/e2e/features"
+  }
+npm install @cucumber/cucumber --save-dev
+npm install --save-dev @types/cypress-cucumber-preprocessor
     `
     constructor() {}
 }
